@@ -1,0 +1,30 @@
+{
+  "name": "Zekey Road - Vite / Three.js Dev",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": {
+      "label": "Vite Development Server",
+      "onAutoForward": "openPreview"
+    }
+  },
+  
+  "postCreateCommand": "cd Project-File && npm install",
+  "postStartCommand": "cd Project-File && npm run dev",
+  "postAttachCommand": "cd Project-File && npm run dev",
+
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["Project-File/src/main.js"]
+    },
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}
