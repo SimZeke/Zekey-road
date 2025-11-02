@@ -47,7 +47,7 @@ renderer.setAnimationLoop(animate);
 
 function animate() {
   animateVehicles();
-  animatePlayer();
+  if (resultDOM.style.visibility === "hidden") animatePlayer();
   hitTest();
 
   renderer.render(scene, camera);

@@ -63,7 +63,7 @@ export function invertDirection(direction) {
 if (direction === "left") return "right";
 if (direction === "right") return "left";
 if (direction === "forward") return "backward";
-if (direction === "dbackward") return "forward";
+if (direction === "backward") return "forward";
 }
 
 export function queueMove(direction) {
@@ -76,11 +76,14 @@ export function queueMove(direction) {
   );
 
   if (!isValidMove) {
-    movesQueue.push(direction);
-    movesQueue.push(invertDirection(direction));
+    if (movesQueue.length < 2) {
+      movesQueue.push(direction);
+      movesQueue.push(invertDirection(direction));
+    }
+    
   }
   else{
-    movesQueue.push(direction);
+    if (movesQueue.length < 2) movesQueue.push(direction);
   }
 }
 
