@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { endsUpInValidPosition } from "../utilities/endsUpInValidPosition";
+import { metadata as rows, addRows } from "./Map";
 
 export const player = Player();
 
@@ -31,7 +32,10 @@ function Player() {
   cap.receiveShadow = true;
   player.add(cap);
 
-  return player;
+  const playerContainer = new THREE.Group();
+  playerContainer.add(player);
+
+  return playerContainer;
 }
 
 export const position = {
@@ -62,4 +66,10 @@ export function stepCompleted() {
   if (direction === "backward") position.currentRow -= 1;
   if (direction === "left") position.currentTile -= 1;
   if (direction === "right") position.currentTile += 1;
+
+  // Add new rows if the player is running out of them
+  if (position.currentRow > rows.length - 10) addRows();
+
+  const scoreDOM = document.getElementById("score");
+  if (scoreDOM) scoreDOM.innerText = position.currentRow.toString();
 }
