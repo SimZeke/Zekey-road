@@ -24,7 +24,7 @@ body {
 #controls button {
   width: 100%;
   height: 40px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border: 1px solid lightgray;
   box-shadow: 3px 5px 0px 0px rgba(0, 0, 0, 0.75);
   cursor: pointer;
@@ -41,5 +41,32 @@ body {
   left: 20px;
 
   font-size: 2em;
-  color: white;
+  color: rgb(213, 222, 245);
+}
+
+#result-container {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+
+  #result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+  }
+
+  button {
+    background-color: red;
+    padding: 20px 50px 20px 50px;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+  }
 }
