@@ -59,6 +59,13 @@ export function initializePlayer() {
   movesQueue.length = 0;
 }
 
+export function invertDirection(direction) {
+if (direction === "left") return "right";
+if (direction === "right") return "left";
+if (direction === "forward") return "backward";
+if (direction === "dbackward") return "forward";
+}
+
 export function queueMove(direction) {
   const isValidMove = endsUpInValidPosition(
     {
@@ -68,9 +75,13 @@ export function queueMove(direction) {
     [...movesQueue, direction]
   );
 
-  if (!isValidMove) return;
-
-  movesQueue.push(direction);
+  if (!isValidMove) {
+    movesQueue.push(direction);
+    movesQueue.push(invertDirection(direction));
+  }
+  else{
+    movesQueue.push(direction);
+  }
 }
 
 export function stepCompleted() {
