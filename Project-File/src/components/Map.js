@@ -5,6 +5,7 @@ import { Road } from "./Road";
 import { Tree } from "./Tree";
 import { Car } from "./Car";
 import { Truck } from "./Truck";
+import { Track } from "./Tracks";
 
 
 export const metadata = [];
@@ -24,6 +25,10 @@ export function initializeMap() {
 }
 
 export function addRows() {
+  
+  map.add(Track(1));
+
+  /*
   const newMetadata = generateRows(20);
 
   const startIndex = metadata.length;
@@ -75,4 +80,5 @@ export function addRows() {
       map.add(row);
     }
   });
+  */
 }
