@@ -77,8 +77,8 @@ export function queueMove(direction) {
 
   if (!isValidMove) {
     if (movesQueue.length < 2) {
+      movesQueue.push("jump");
       movesQueue.push(direction);
-      movesQueue.push(invertDirection(direction));
     }
     
   }
@@ -89,7 +89,7 @@ export function queueMove(direction) {
 
 export function stepCompleted() {
   const direction = movesQueue.shift();
-
+  if (direction === "jump") movesQueue.shift();
   if (direction === "forward") position.currentRow += 1;
   if (direction === "backward") position.currentRow -= 1;
   if (direction === "left") position.currentTile -= 1;

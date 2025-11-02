@@ -1,15 +1,13 @@
 import * as THREE from "three";
-import {
-    player,
-    position, 
-    movesQueue, 
-    stepCompleted
-} from "./components/Player";
+import {player,position,movesQueue,stepCompleted} from "./components/Player";
+import { resultDOM } from "./main";
 import { tileSize } from "./constants";
 
 const moveClock = new THREE.Clock(false);
 
 export function animatePlayer() {
+  if (resultDOM.style.visibility === "visible") return
+  
   if (!movesQueue.length) return;
 
   if (!moveClock.running) moveClock.start();
@@ -45,10 +43,12 @@ function setPosition(progress) {
 
 function setRotation(progress) {
   let endRotation = 0;
-  if (movesQueue[0] == "forward") endRotation = 0;
-  if (movesQueue[0] == "left") endRotation = Math.PI / 2;
-  if (movesQueue[0] == "right") endRotation = -Math.PI / 2;
-  if (movesQueue[0] == "backward") endRotation = Math.PI;
+  let q = 0;
+  if (movesQueue[0] == "jump") {q = 1}
+  if (movesQueue[q] == "forward") endRotation = 0;
+  if (movesQueue[q] == "left") endRotation = Math.PI / 2;
+  if (movesQueue[q] == "right") endRotation = -Math.PI / 2;
+  if (movesQueue[q] == "backward") endRotation = Math.PI;
 
   player.children[0].rotation.z = THREE.MathUtils.lerp(
     player.children[0].rotation.z,
