@@ -6,6 +6,7 @@ import { Tree } from "./Tree";
 import { Car } from "./Car";
 import { Truck } from "./Truck";
 import { Track } from "./Tracks";
+import { Train } from "./Train";
 
 
 export const metadata = [];
@@ -27,6 +28,8 @@ export function initializeMap() {
 export function addRows() {
   
   map.add(Track(1));
+
+  map.add(Train(0, "ture"));
 
   /*
   const newMetadata = generateRows(20);
