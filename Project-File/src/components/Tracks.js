@@ -23,7 +23,8 @@ export function Track(rowIndex) {
   rail2.position.z += tileSize / 10;
   rail2.position.y = (tileSize / 5)
   track.add(rail2);
-  for (let i = minTileIndex; i < maxTileIndex; i ++) {
+  
+  for (let i = minTileIndex; i <= maxTileIndex; i ++) {
     const beem = new THREE.Group();
 
     beem.add(Beem(i * tileSize - tileSize / 4))
@@ -31,6 +32,7 @@ export function Track(rowIndex) {
 
     track.add(beem);
   }
+  
   const foundation = new THREE.Mesh(
       new THREE.PlaneGeometry(tilesPerRow * tileSize, tileSize),
       new THREE.MeshLambertMaterial({ color: 0x454a59 })

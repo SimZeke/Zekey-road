@@ -82,6 +82,21 @@ export function addRows() {
 
       map.add(row);
     }
+    
+    if (rowData.type === "train") {
+      const row = Road(rowIndex);
+
+      rowData.vehicles.forEach((vehicle) => {
+        const train = Truck(
+          vehicle.initialTileIndex,
+          rowData.direction
+        );
+        vehicle.ref = truck;
+        row.add(truck);
+      });
+
+      map.add(row);
+    }
   });
   */
 }

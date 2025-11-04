@@ -10,7 +10,7 @@ export function Train(initialTileIndex, direction) {
   const cargo = new THREE.Mesh(
     new THREE.BoxGeometry(100, 35, 35),
     new THREE.MeshLambertMaterial({
-      color: 0xa52523,
+      color: 0xd52523,
       flatShading: true,
     }),
   );
@@ -27,16 +27,38 @@ export function Train(initialTileIndex, direction) {
   roof.position.z = 43;
   train.add(roof);
 
-  const window = new THREE.Mesh(
+  const window1 = new THREE.Mesh(
     new THREE.BoxGeometry(20, 36, 25),
     new THREE.MeshLambertMaterial({
         color: 0x47f2ff,
         flatShading: true,
     }),
   );
-  window.position.z = 25;
-  window.position.x = 30;
-  train.add(window);
+  window1.position.z = 25;
+  window1.position.x = 30;
+  train.add(window1);
+
+  const window2 = new THREE.Mesh(
+    new THREE.BoxGeometry(20, 36, 25),
+    new THREE.MeshLambertMaterial({
+        color: 0x47f2ff,
+        flatShading: true,
+    }),
+  );
+  window2.position.z = 25;
+  window2.position.x = 0;
+  train.add(window2);
+
+  const window3 = new THREE.Mesh(
+    new THREE.BoxGeometry(20, 36, 25),
+    new THREE.MeshLambertMaterial({
+        color: 0x47f2ff,
+        flatShading: true,
+    }),
+  );
+  window3.position.z = 25;
+  window3.position.x = -30;
+  train.add(window3);
 
   const frontWheel = Wheel(35);
   train.add(frontWheel);
