@@ -84,15 +84,15 @@ export function addRows() {
     }
     
     if (rowData.type === "train") {
-      const row = Road(rowIndex);
+      const row = Track(rowIndex);
 
       rowData.vehicles.forEach((vehicle) => {
-        const train = Truck(
+        const train = Train(
           vehicle.initialTileIndex,
           rowData.direction
         );
-        vehicle.ref = truck;
-        row.add(truck);
+        vehicle.ref = train;
+        row.add(train);
       });
 
       map.add(row);
