@@ -1,11 +1,10 @@
 import * as THREE from "three";
-import { tileSize } from "../constants";
+import { minTileIndex, tileSize } from "../constants";
 import { Wheel } from "./Wheel";
 
-export function Train(initialTileIndex, direction) {
+export function Train(length, direction,) {
   const train = new THREE.Group();
-  train.position.x = initialTileIndex * tileSize;
-  if (!direction) train.rotation.z = Math.PI;
+  train.position.x = minTileIndex * tileSize * direction;
 
   const cargo = new THREE.Mesh(
     new THREE.BoxGeometry(100, 35, 35),

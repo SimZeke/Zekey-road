@@ -11,9 +11,10 @@ export function generateRows(amount) {
 }
 
 function generateRow() {
-  const type = randomElement(["car", "truck", "forest"]);
+  const type = randomElement(["car", "truck", "forest","train"]);
   if (type === "car") return generateCarLaneMetadata();
   if (type === "truck") return generateTruckLaneMetadata();
+  if (type === "train") return generateTrainLaneMetadata();
   return generateForesMetadata();
 }
 
@@ -90,4 +91,11 @@ function generateTruckLaneMetadata() {
   });
 
   return { type: "truck", direction, speed, vehicles };
+}
+
+function generateTrainLaneMetadata() {
+  const direction = randomElement([1,-1]);
+  const speed = randomElement([15,20,30]);
+
+  return { type: "train", direction, speed}
 }

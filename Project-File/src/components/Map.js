@@ -26,12 +26,12 @@ export function initializeMap() {
 }
 
 export function addRows() {
-  
+  /*
   map.add(Track(1));
 
   map.add(Train(0, "ture"));
-
-  /*
+  */
+  
   const newMetadata = generateRows(20);
 
   const startIndex = metadata.length;
@@ -92,11 +92,10 @@ export function addRows() {
           rowData.direction
         );
         vehicle.ref = train;
-        row.add(train);
+        row.add(Train);
       });
 
       map.add(row);
     }
   });
-  */
 }
