@@ -4,66 +4,71 @@ import { Wheel } from "./Wheel";
 
 export function Train(length, direction,) {
   const train = new THREE.Group();
-  train.position.x = minTileIndex * tileSize * direction;
+  
+  for (i < length; i = 0; i++) {
 
-  const cargo = new THREE.Mesh(
-    new THREE.BoxGeometry(100, 35, 35),
-    new THREE.MeshLambertMaterial({
-      color: 0xd52523,
-      flatShading: true,
-    }),
-  );
-  cargo.position.z = 25;
-  train.add(cargo);
+    train.position.x = (minTileIndex - (3 * t)) * tileSize * direction;
 
-  const roof = new THREE.Mesh(
-    new THREE.BoxGeometry(102, 37 , 10),
-    new THREE.MeshLambertMaterial({
-      color: 0x454a59,
-      flatShading: true,
-    }),
-  );
-  roof.position.z = 43;
-  train.add(roof);
-
-  const window1 = new THREE.Mesh(
-    new THREE.BoxGeometry(20, 36, 25),
-    new THREE.MeshLambertMaterial({
-        color: 0x47f2ff,
+    const cargo = new THREE.Mesh(
+      new THREE.BoxGeometry(100, 35, 35),
+      new THREE.MeshLambertMaterial({
+        color: 0xd52523,
         flatShading: true,
-    }),
-  );
-  window1.position.z = 25;
-  window1.position.x = 30;
-  train.add(window1);
+      }),
+    );
+    cargo.position.z = 25;
+    train.add(cargo);
 
-  const window2 = new THREE.Mesh(
-    new THREE.BoxGeometry(20, 36, 25),
-    new THREE.MeshLambertMaterial({
-        color: 0x47f2ff,
+    const roof = new THREE.Mesh(
+      new THREE.BoxGeometry(102, 37 , 10),
+      new THREE.MeshLambertMaterial({
+        color: 0x454a59,
         flatShading: true,
-    }),
-  );
-  window2.position.z = 25;
-  window2.position.x = 0;
-  train.add(window2);
+      }),
+    );
+    roof.position.z = 43;
+    train.add(roof);
 
-  const window3 = new THREE.Mesh(
-    new THREE.BoxGeometry(20, 36, 25),
-    new THREE.MeshLambertMaterial({
-        color: 0x47f2ff,
-        flatShading: true,
-    }),
-  );
-  window3.position.z = 25;
-  window3.position.x = -30;
-  train.add(window3);
+    const window1 = new THREE.Mesh(
+      new THREE.BoxGeometry(20, 36, 25),
+      new THREE.MeshLambertMaterial({
+          color: 0x47f2ff,
+          flatShading: true,
+      }),
+    );
+    window1.position.z = 25;
+    window1.position.x = 30;
+    train.add(window1);
 
-  const frontWheel = Wheel(35);
-  train.add(frontWheel);
+    const window2 = new THREE.Mesh(
+      new THREE.BoxGeometry(20, 36, 25),
+      new THREE.MeshLambertMaterial({
+          color: 0x47f2ff,
+          flatShading: true,
+      }),
+    );
+    window2.position.z = 25;
+    window2.position.x = 0;
+    train.add(window2);
 
-  const backWheel = Wheel(-35);
-  train.add(backWheel);
+    const window3 = new THREE.Mesh(
+      new THREE.BoxGeometry(20, 36, 25),
+      new THREE.MeshLambertMaterial({
+          color: 0x47f2ff,
+          flatShading: true,
+      }),
+    );
+    window3.position.z = 25;
+    window3.position.x = -30;
+    train.add(window3);
 
-  return train;
+    const frontWheel = Wheel(35);
+    train.add(frontWheel);
+
+    const backWheel = Wheel(-35);
+    train.add(backWheel);
+
+    return train;
+
+  }
 }
