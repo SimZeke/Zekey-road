@@ -95,7 +95,7 @@ function generateTruckLaneMetadata() {
 
 function generateTrainLaneMetadata() {
   const direction = randomElement([1,-1]);
-  const speed = randomElement([15,20,30]);
+  const Length = randomElement([15,20,30]);
 
-  return { type: "train", direction, speed}
+  return { type: "train", direction, Length}
 }

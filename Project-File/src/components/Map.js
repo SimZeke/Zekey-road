@@ -88,7 +88,7 @@ export function addRows() {
 
       rowData.vehicles.forEach((vehicle) => {
         const train = Train(
-          vehicle.initialTileIndex,
+          vehicle.Length,
           rowData.direction
         );
         vehicle.ref = train;

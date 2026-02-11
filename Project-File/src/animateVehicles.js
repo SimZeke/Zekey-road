@@ -4,6 +4,8 @@ import { minTileIndex, maxTileIndex, tileSize } from "./constants";
 
 const clock = new THREE.Clock();
 
+let timer = 0;
+
 export function animateVehicles() {
   const delta = clock.getDelta();
 
@@ -26,6 +28,24 @@ export function animateVehicles() {
             ref.position.x < beginningOfRow
               ? endOfRow
               : ref.position.x - rowData.speed * delta;
+        }
+      });
+    }
+  
+  if (rowData.type === "train") {
+      rowData.vehicles.forEach(({ ref }) => {
+        if (!ref) throw Error("Vehicle reference is missing");
+
+        if (timer > 100) {
+          timer += delta;
+        }
+
+        if (rowData.direction > 0) {
+          ref.position.x =
+          ref.position.x + 10 * delta;
+        } else {
+          ref.position.x =
+          ref.position.x - 10 * delta;
         }
       });
     }
