@@ -33,21 +33,20 @@ export function animateVehicles() {
     }
   
   if (rowData.type === "train") {
-      rowData.vehicles.forEach(({ ref }) => {
-        if (!ref) throw Error("Vehicle reference is missing");
 
-        if (timer > 100) {
-          timer += delta;
-        }
+      if (!ref) throw Error("Vehicle reference is missing");
 
-        if (rowData.direction > 0) {
-          ref.position.x =
-          ref.position.x + 10 * delta;
-        } else {
-          ref.position.x =
-          ref.position.x - 10 * delta;
-        }
-      });
+      if (timer > 100) {
+        timer += delta;
+      }
+
+      if (rowData.direction > 0) {
+        ref.position.x =
+        ref.position.x + 10 * delta;
+      } else {
+        ref.position.x =
+        ref.position.x - 10 * delta;
+      }
     }
   });
 }

@@ -86,14 +86,12 @@ export function addRows() {
     if (rowData.type === "train") {
       const row = Track(rowIndex);
 
-      rowData.vehicles.forEach((vehicle) => {
-        const train = Train(
-          vehicle.Length,
-          rowData.direction
-        );
-        vehicle.ref = train;
-        row.add(Train);
-      });
+      const train = Train(
+        rowData.distance,
+        rowData.direction
+      );
+      
+      row.add(train);
 
       map.add(row);
     }
